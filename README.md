@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CyclingApp
 This application was generated using JHipster 4.13.1, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.13.1](http://www.jhipster.tech/documentation-archive/v4.13.1).
 
@@ -166,3 +167,6 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [Protractor]: https://angular.github.io/protractor/
 [Leaflet]: http://leafletjs.com/
 [DefinitelyTyped]: http://definitelytyped.org/
+=======
+# CyclingApp
+>>>>>>> cc5c232013012a26a7a53c9e71894062e2b28d8a
