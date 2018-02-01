@@ -17,6 +17,7 @@ export class Race implements BaseEntity {
         public amountOfDays?: number,
         public typeOfRace?: TypeOfRace,
         public yearOfFirstRace?: string,
+        public lastWinner?: string,
     ) {
     }
 }

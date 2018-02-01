@@ -59,6 +59,9 @@ public class RaceResourceIntTest {
     private static final String DEFAULT_YEAR_OF_FIRST_RACE = "AAAAAAAAAA";
     private static final String UPDATED_YEAR_OF_FIRST_RACE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_LAST_WINNER = "AAAAAAAAAA";
+    private static final String UPDATED_LAST_WINNER = "BBBBBBBBBB";
+
     @Autowired
     private RaceRepository raceRepository;
 
@@ -102,7 +105,8 @@ public class RaceResourceIntTest {
             .dateOfRace(DEFAULT_DATE_OF_RACE)
             .amountOfDays(DEFAULT_AMOUNT_OF_DAYS)
             .typeOfRace(DEFAULT_TYPE_OF_RACE)
-            .yearOfFirstRace(DEFAULT_YEAR_OF_FIRST_RACE);
+            .yearOfFirstRace(DEFAULT_YEAR_OF_FIRST_RACE)
+            .lastWinner(DEFAULT_LAST_WINNER);
         return race;
     }
 
@@ -132,6 +136,7 @@ public class RaceResourceIntTest {
         assertThat(testRace.getAmountOfDays()).isEqualTo(DEFAULT_AMOUNT_OF_DAYS);
         assertThat(testRace.getTypeOfRace()).isEqualTo(DEFAULT_TYPE_OF_RACE);
         assertThat(testRace.getYearOfFirstRace()).isEqualTo(DEFAULT_YEAR_OF_FIRST_RACE);
+        assertThat(testRace.getLastWinner()).isEqualTo(DEFAULT_LAST_WINNER);
     }
 
     @Test
@@ -169,7 +174,8 @@ public class RaceResourceIntTest {
             .andExpect(jsonPath("$.[*].dateOfRace").value(hasItem(DEFAULT_DATE_OF_RACE.toString())))
             .andExpect(jsonPath("$.[*].amountOfDays").value(hasItem(DEFAULT_AMOUNT_OF_DAYS)))
             .andExpect(jsonPath("$.[*].typeOfRace").value(hasItem(DEFAULT_TYPE_OF_RACE.toString())))
-            .andExpect(jsonPath("$.[*].yearOfFirstRace").value(hasItem(DEFAULT_YEAR_OF_FIRST_RACE.toString())));
+            .andExpect(jsonPath("$.[*].yearOfFirstRace").value(hasItem(DEFAULT_YEAR_OF_FIRST_RACE.toString())))
+            .andExpect(jsonPath("$.[*].lastWinner").value(hasItem(DEFAULT_LAST_WINNER.toString())));
     }
 
     @Test
@@ -188,7 +194,8 @@ public class RaceResourceIntTest {
             .andExpect(jsonPath("$.dateOfRace").value(DEFAULT_DATE_OF_RACE.toString()))
             .andExpect(jsonPath("$.amountOfDays").value(DEFAULT_AMOUNT_OF_DAYS))
             .andExpect(jsonPath("$.typeOfRace").value(DEFAULT_TYPE_OF_RACE.toString()))
-            .andExpect(jsonPath("$.yearOfFirstRace").value(DEFAULT_YEAR_OF_FIRST_RACE.toString()));
+            .andExpect(jsonPath("$.yearOfFirstRace").value(DEFAULT_YEAR_OF_FIRST_RACE.toString()))
+            .andExpect(jsonPath("$.lastWinner").value(DEFAULT_LAST_WINNER.toString()));
     }
 
     @Test
@@ -216,7 +223,8 @@ public class RaceResourceIntTest {
             .dateOfRace(UPDATED_DATE_OF_RACE)
             .amountOfDays(UPDATED_AMOUNT_OF_DAYS)
             .typeOfRace(UPDATED_TYPE_OF_RACE)
-            .yearOfFirstRace(UPDATED_YEAR_OF_FIRST_RACE);
+            .yearOfFirstRace(UPDATED_YEAR_OF_FIRST_RACE)
+            .lastWinner(UPDATED_LAST_WINNER);
 
         restRaceMockMvc.perform(put("/api/races")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -233,6 +241,7 @@ public class RaceResourceIntTest {
         assertThat(testRace.getAmountOfDays()).isEqualTo(UPDATED_AMOUNT_OF_DAYS);
         assertThat(testRace.getTypeOfRace()).isEqualTo(UPDATED_TYPE_OF_RACE);
         assertThat(testRace.getYearOfFirstRace()).isEqualTo(UPDATED_YEAR_OF_FIRST_RACE);
+        assertThat(testRace.getLastWinner()).isEqualTo(UPDATED_LAST_WINNER);
     }
 
     @Test

@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import be.ordina.cyclingapp.converter.LocalDateConverter;
 import be.ordina.cyclingapp.domain.enumeration.TypeOfRace;
 
 /**
@@ -31,7 +30,6 @@ public class Race implements Serializable {
     private String nickname;
 
     @Column(name = "date_of_race")
-    @Convert(converter = LocalDateConverter.class)
     private LocalDate dateOfRace;
 
     @Column(name = "amount_of_days")
@@ -43,6 +41,9 @@ public class Race implements Serializable {
 
     @Column(name = "year_of_first_race")
     private String yearOfFirstRace;
+
+    @Column(name = "last_winner")
+    private String lastWinner;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -130,6 +131,19 @@ public class Race implements Serializable {
     public void setYearOfFirstRace(String yearOfFirstRace) {
         this.yearOfFirstRace = yearOfFirstRace;
     }
+
+    public String getLastWinner() {
+        return lastWinner;
+    }
+
+    public Race lastWinner(String lastWinner) {
+        this.lastWinner = lastWinner;
+        return this;
+    }
+
+    public void setLastWinner(String lastWinner) {
+        this.lastWinner = lastWinner;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -162,6 +176,7 @@ public class Race implements Serializable {
             ", amountOfDays=" + getAmountOfDays() +
             ", typeOfRace='" + getTypeOfRace() + "'" +
             ", yearOfFirstRace='" + getYearOfFirstRace() + "'" +
+            ", lastWinner='" + getLastWinner() + "'" +
             "}";
     }
 }

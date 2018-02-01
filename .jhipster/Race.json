@@ -26,12 +26,16 @@
         {
             "fieldName": "yearOfFirstRace",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "lastWinner",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20180130155328",
-    "entityTableName": "race",
     "dto": "no",
-    "pagination": "no",
     "service": "no",
-    "jpaMetamodelFiltering": false
+    "entityTableName": "race",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
 }
