@@ -1,0 +1,65 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myRaceLabel">Create or edit a Race</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!race.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="race.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="race.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nickname">Nickname</label>
+            <input type="text" class="form-control" name="nickname" id="field_nickname"
+                [(ngModel)]="race.nickname" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dateOfRace">Date Of Race</label>
+            <div class="input-group">
+                <input id="field_dateOfRace" type="text" class="form-control" name="dateOfRace" ngbDatepicker  #dateOfRaceDp="ngbDatepicker" [(ngModel)]="race.dateOfRace"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="dateOfRaceDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amountOfDays">Amount Of Days</label>
+            <input type="number" class="form-control" name="amountOfDays" id="field_amountOfDays"
+                [(ngModel)]="race.amountOfDays" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_typeOfRace">Type Of Race</label>
+            <select class="form-control" name="typeOfRace" [(ngModel)]="race.typeOfRace" id="field_typeOfRace" >
+                <option value="CLASSIC_COBBLES">CLASSIC_COBBLES</option>
+                <option value="ONE_WEEK_STAGE">ONE_WEEK_STAGE</option>
+                <option value="GRAND_TOUR">GRAND_TOUR</option>
+                <option value="CLASSIC_HILL">CLASSIC_HILL</option>
+                <option value="SHORT_STAGE">SHORT_STAGE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_yearOfFirstRace">Year Of First Race</label>
+            <input type="text" class="form-control" name="yearOfFirstRace" id="field_yearOfFirstRace"
+                [(ngModel)]="race.yearOfFirstRace" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rider",
+            "otherEntityName": "rider",
+            "otherEntityRelationshipName": "team"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amountOfVictories",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "yearFounded",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "teamManager",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brandOfBicycle",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20180130155326",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "team",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

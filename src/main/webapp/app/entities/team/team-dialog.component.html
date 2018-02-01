@@ -1,0 +1,50 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTeamLabel">Create or edit a Team</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!team.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="team.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="team.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_amountOfVictories">Amount Of Victories</label>
+            <input type="number" class="form-control" name="amountOfVictories" id="field_amountOfVictories"
+                [(ngModel)]="team.amountOfVictories" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_yearFounded">Year Founded</label>
+            <input type="number" class="form-control" name="yearFounded" id="field_yearFounded"
+                [(ngModel)]="team.yearFounded" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_teamManager">Team Manager</label>
+            <input type="text" class="form-control" name="teamManager" id="field_teamManager"
+                [(ngModel)]="team.teamManager" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_brandOfBicycle">Brand Of Bicycle</label>
+            <input type="text" class="form-control" name="brandOfBicycle" id="field_brandOfBicycle"
+                [(ngModel)]="team.brandOfBicycle" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,75 @@
+<div>
+    <h2>
+        <span>Riders</span>
+        <button class="btn btn-primary float-right jh-create-entity create-rider"
+                [routerLink]="['/', { outlets: { popup: ['rider-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span>
+            Create new Rider
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="riders">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span>ID</span></th>
+                <th><span>First Name</span></th>
+                <th><span>Last Name</span></th>
+                <th><span>Date Of Birth</span></th>
+                <th><span>Amount Of Victories</span></th>
+                <th><span>Length</span></th>
+                <th><span>Weight</span></th>
+                <th><span>Team</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rider of riders ;trackBy: trackId">
+                <td><a [routerLink]="['../rider', rider.id ]">{{rider.id}}</a></td>
+                <td>{{rider.firstName}}</td>
+                <td>{{rider.lastName}}</td>
+                <td>{{rider.dateOfBirth | date:'mediumDate'}}</td>
+                <td>{{rider.amountOfVictories}}</td>
+                <td>{{rider.length}}</td>
+                <td>{{rider.weight}}</td>
+                <td>
+                    <div *ngIf="rider.team">
+                        <a [routerLink]="['../team', rider.team?.id ]">{{rider.team?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../rider', rider.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'rider/'+ rider.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'rider/'+ rider.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

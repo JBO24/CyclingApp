@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="JeBo (generated)" id="1517485890745-7">
+        <createTable tableName="race">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="racePK"/>
+            </column>
+            <column name="amount_of_days" type="INT"/>
+            <column name="date_of_race" type="date"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="nickname" type="VARCHAR(255)"/>
+            <column name="type_of_race" type="VARCHAR(255)"/>
+            <column name="year_of_first_race" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="JeBo (generated)" id="1517485890745-8">
+        <createTable tableName="rider">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="riderPK"/>
+            </column>
+            <column name="amount_of_victories" type="INT"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="length" type="INT"/>
+            <column name="weight" type="DOUBLE"/>
+            <column name="team_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="JeBo (generated)" id="1517485890745-9">
+        <createTable tableName="team">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="teamPK"/>
+            </column>
+            <column name="amount_of_victories" type="INT"/>
+            <column name="brand_of_bicycle" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="team_manager" type="VARCHAR(255)"/>
+            <column name="year_founded" type="INT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,31 @@
+entity Team {
+    name String,
+  	amountOfVictories Integer,
+    yearFounded Integer,
+    teamManager String
+}
+
+entity Rider {
+	firstName String,
+    lastName String,
+    dateOfBirth LocalDate,
+    amountOfVictories Integer,
+    length Integer
+}
+
+entity Race {
+	name String,
+    nickname String,
+	dateOfRace LocalDate,
+    amountOfDays Integer,
+    typeOfRace TypeOfRace,
+    yearOfFirstRace String,
+}
+
+enum TypeOfRace {
+	CLASSIC_COBBLES, ONE_WEEK_STAGE, GRAND_TOUR, CLASSIC_HILL, SHORT_STAGE
+}
+
+relationship OneToMany {
+	Team{rider} to Rider{team}
+}

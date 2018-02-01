@@ -1,0 +1,65 @@
+<div *ngIf="rider">
+    <h2>{{rider.firstName}} {{rider.lastName}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <div *ngIf="rider.firstName">
+            <dt><span>First Name</span></dt>
+            <dd>
+                <span>{{rider.firstName}}</span>
+            </dd>
+        </div>
+        <div *ngIf="rider.lastName">
+            <dt><span>Last Name</span></dt>
+            <dd>
+                <span>{{rider.lastName}}</span>
+            </dd>
+        </div>
+        <div *ngIf="rider.dateOfBirth">
+            <dt><span>Date Of Birth</span></dt>
+            <dd>
+                <span>{{rider.dateOfBirth | date:'mediumDate'}}</span>
+            </dd>
+        </div>
+        <div *ngIf="rider.amountOfVictories">
+            <dt><span>Amount Of Victories</span></dt>
+            <dd>
+                <span>{{rider.amountOfVictories}}</span>
+            </dd>
+        </div>
+        <div *ngIf="rider.length">
+            <dt><span>Length</span></dt>
+            <dd>
+                <span>{{rider.length}}</span>
+            </dd>
+        </div>
+        <div *ngIf="rider.weight">
+            <dt><span>Weight</span></dt>
+            <dd>
+                <span>{{rider.weight}}</span>
+            </dd>
+        </div>
+        <div *ngIf="rider.team">
+            <dt><span>Team</span></dt>
+            <dd>
+                <div *ngIf="rider.team">
+                    <a [routerLink]="['/team', rider.team?.id]">{{rider.team?.name}}</a>
+                </div>
+            </dd>
+        </div>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rider/'+ rider.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
