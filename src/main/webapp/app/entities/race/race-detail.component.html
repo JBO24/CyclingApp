@@ -1,33 +1,44 @@
-
 <div *ngIf="race">
     <h2><span></span>{{race.name}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span>Name</span></dt>
-        <dd>
-            <span>{{race.name}}</span>
-        </dd>
-        <dt><span>Nickname</span></dt>
-        <dd>
-            <span>{{race.nickname}}</span>
-        </dd>
-        <dt><span>Date Of Race</span></dt>
-        <dd>
-            <span>{{race.dateOfRace | date:'mediumDate'}}</span>
-        </dd>
-        <dt><span>Amount Of Days</span></dt>
-        <dd>
-            <span>{{race.amountOfDays}}</span>
-        </dd>
-        <dt><span>Type Of Race</span></dt>
-        <dd>
-            <span>{{race.typeOfRace}}</span>
-        </dd>
-        <dt><span>Year Of First Race</span></dt>
-        <dd>
-            <span>{{race.yearOfFirstRace}}</span>
-        </dd>
+        <div *ngIf="race.name">
+            <dt><span>Name</span></dt>
+            <dd>
+                <span>{{race.name}}</span>
+            </dd>
+        </div>
+        <div *ngIf="race.nickname">
+            <dt><span>Nickname</span></dt>
+            <dd>
+                <span>{{race.nickname}}</span>
+            </dd>
+        </div>
+        <div *ngIf="race.dateOfRace">
+            <dt><span>Date Of Race</span></dt>
+            <dd>
+                <span>{{race.dateOfRace | date:'mediumDate'}}</span>
+            </dd>
+        </div>
+        <div *ngIf="race.amountOfDays">
+            <dt><span>Amount Of Days</span></dt>
+            <dd>
+                <span>{{race.amountOfDays}}</span>
+            </dd>
+        </div>
+        <div *ngIf="race.typeOfRace">
+            <dt><span>Type Of Race</span></dt>
+            <dd>
+                <span>{{race.typeOfRace}}</span>
+            </dd>
+        </div>
+        <div *ngIf="race.yearOfFirstRace">
+            <dt><span>Year Of First Race</span></dt>
+            <dd>
+                <span>{{race.yearOfFirstRace}}</span>
+            </dd>
+        </div>
     </dl>
 
     <button type="submit"
